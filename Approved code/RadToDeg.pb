@@ -8,10 +8,3 @@
 Procedure.d RadToDeg(rad.d)
   ProcedureReturn rad * 180.0 / #PI
 EndProcedure
-;Debug RadToDeg(#PI)
-; IDE Options = PureBasic 6.21 (Windows - x64)
-; CursorPosition = 7
-; Folding = -
-; EnableThread
-; EnableXP
-; DPIAware

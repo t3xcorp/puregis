@@ -8,11 +8,3 @@
   Procedure.d DegToRad(deg.d)
     ProcedureReturn deg * #PI / 180.0
   EndProcedure
-  
-  ;Debug DegToRad(180)
-; IDE Options = PureBasic 6.21 (Windows - x64)
-; CursorPosition = 7
-; Folding = -
-; EnableThread
-; EnableXP
-; DPIAware

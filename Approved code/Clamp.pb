@@ -16,10 +16,3 @@ Procedure.d Clamp(value.d, min.d, max.d)
     ProcedureReturn value
   EndIf
 EndProcedure
- ;Debug Clamp(5, 0, 3)
-; IDE Options = PureBasic 6.21 (Windows - x64)
-; CursorPosition = 18
-; Folding = -
-; EnableThread
-; EnableXP
-; DPIAware

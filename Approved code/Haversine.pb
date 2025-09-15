@@ -1,24 +1,27 @@
-﻿;-------------------------------------------------------------
-; Procedure: Haversine
-; Purpose:   Calculates the great-circle distance between two points on the Earth.
-; Arguments: lat1.d, lon1.d - Latitude/longitude of point 1 (degrees)
-;            lat2.d, lon2.d - Latitude/longitude of point 2 (degrees)
-; Returns:   .d             - Distance in meters
-; Example:   Haversine(50, 10, 51, 11)
-;-------------------------------------------------------------
-XIncludeFile "DegToRad.pb"
-  Procedure.d Haversine(lat1.d, lon1.d, lat2.d, lon2.d)
-    Protected R.d = 6371000.0 ; Earth radius in meters
-    Protected dLat.d = DegToRad(lat2 - lat1)
-    Protected dLon.d = DegToRad(lon2 - lon1)
-    Protected a.d = Pow(Sin(dLat / 2), 2) + Cos(DegToRad(lat1)) * Cos(DegToRad(lat2)) * Pow(Sin(dLon / 2), 2)
-    Protected c.d = 2 * ATan2(Sqr(a), Sqr(1 - a))
-    ProcedureReturn R * c
-  EndProcedure
-  ; Debug Haversine(50, 10, 51, 11)
-; IDE Options = PureBasic 6.21 (Windows - x64)
-; CursorPosition = 8
-; Folding = -
-; EnableThread
-; EnableXP
-; DPIAware
+; -----------------------------------------------------------------------------
+; Procedure:    Haversine
+; Purpose:      Calculates the great-circle distance between two points on the
+;               Earth's surface using the Haversine formula.
+; Parameters:   lat1.d - Latitude of the first point in degrees
+;               lon1.d - Longitude of the first point in degrees
+;               lat2.d - Latitude of the second point in degrees
+;               lon2.d - Longitude of the second point in degrees
+; Returns:      Distance in meters as a double
+; Reference:    https://en.wikipedia.org/wiki/Haversine_formula
+; -----------------------------------------------------------------------------
+Procedure.d Haversine(lat1.d, lon1.d, lat2.d, lon2.d)
+  Protected R.d = 6371000.0 ; Earth radius in meters
+
+  ; Convert degrees to radians for latitude and longitude
+  Protected lat1Rad.d = lat1 * #PI / 180.0
+  Protected lat2Rad.d = lat2 * #PI / 180.0
+  Protected deltaLat.d = (lat2 - lat1) * #PI / 180.0
+  Protected deltaLon.d = (lon2 - lon1) * #PI / 180.0
+
+  ; Compute the Haversine formula
+  Protected a.d = Pow(Sin(deltaLat / 2), 2) + Cos(lat1Rad) * Cos(lat2Rad) * Pow(Sin(deltaLon / 2), 2)
+  Protected c.d = 2 * ASin(Sqr(a))
+
+  ; Return the calculated distance in meters
+  ProcedureReturn R * c
+EndProcedure

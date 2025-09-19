@@ -1,3 +1,19 @@
+;------------------------------------------------------------------------------
+; Purpose:
+;   This code defines structures for 2D, 3D, and 4D vectors and provides a procedure
+;   for creating new instances of those vectors (dynamically allocating memory).
+;   It is useful for mathematical, geometrical, or graphical applications where
+;   vectors of various dimensions are needed.
+;
+; Input:
+;   - Dimension (integer): Indicates the type of vector to create (2 for 2D, 3 for 3D, 4 for 4D).
+;   - x, y, z, m (double): Coordinate values for the vector. 'z' and 'm' are optional (default 0.0).
+;
+; Output:
+;   - Returns a pointer to the newly created vector structure (Vector2D, Vector3D, or Vector4D),
+;     or 0 if the dimension is not valid or memory allocation fails.
+;------------------------------------------------------------------------------
+
 ; Structure for 2D vector
 Structure Vector2D
   x.d

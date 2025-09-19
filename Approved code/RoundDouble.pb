@@ -11,9 +11,3 @@ Procedure.d RoundDouble(value.d, decimals.i)
   ProcedureReturn Round(value * factor, #PB_Round_Nearest) / factor
 EndProcedure
 ; Debug RoundDouble(123.456789, 2)
-; IDE Options = PureBasic 6.21 (Windows - x64)
-; CursorPosition = 12
-; Folding = -
-; EnableThread
-; EnableXP
-; DPIAware

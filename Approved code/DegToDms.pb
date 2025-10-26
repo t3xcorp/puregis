@@ -13,7 +13,7 @@
 ;   DegToDms(-12.5824167, @deg, @min, @sec)
 ;   ; deg = -12, min = 34, sec ≈ 56.7001
 ;-----------------------------------------------------------
-ProcedureDLL DegToDms(decimal.d, *deg.Integer, *min.Integer, *sec.Double)
+Procedure DegToDms(decimal.d, *deg.Integer, *min.Integer, *sec.Double)
   ; Error checking for output pointers
   If *deg = #Null Or *min = #Null Or *sec = #Null
     ProcedureReturn
